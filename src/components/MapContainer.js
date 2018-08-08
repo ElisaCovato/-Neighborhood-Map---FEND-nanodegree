@@ -6,7 +6,14 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 export class MapContainer extends Component {
 	render() {
 		return (
-			<Map google={this.props.google} zoom={14}>
+			<Map 
+				google={this.props.google} 
+				zoom={14}
+				initialCenter={{
+					lat: 41.890251,
+					lng: 12.492373
+				}}
+				>
 				<Marker onClick={this.onMarkerClick}
 					name={'Current location'} />
 				<InfoWindow onClose={this.onInfoWindowClose}>
