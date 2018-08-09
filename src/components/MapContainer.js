@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 // This component deals with the Map container and its functionalities
@@ -14,15 +15,22 @@ export class MapContainer extends Component {
 					lng: 12.492373
 				}}
 				>
-				<Marker onClick={this.onMarkerClick}
-					name={'Current location'} />
-				<InfoWindow onClose={this.onInfoWindowClose}>
-					<div>
-					</div>
-				</InfoWindow>
+				
+				{this.props.markers.map( marker => (
+					<Marker 
+						position={marker}
+						name={marker.place}
+						title={marker.place}
+					/>
+				))}
+				
 			</Map>
 		);
 	}
+}
+
+MapContainer.propTypes = {
+	markers: PropTypes.object
 }
 
 export default GoogleApiWrapper({
