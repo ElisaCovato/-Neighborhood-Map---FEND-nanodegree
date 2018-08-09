@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import '../styles/App.css';
 import MapContainer from './MapContainer'
 import SearchBar from './SearchBar'
+import ListView from './ListView'
 import locations from '../locations.json'
 
 class App extends Component {
@@ -30,7 +31,8 @@ class App extends Component {
         <SearchBar 
           query={this.state.query}
           updateQuery={query => this.updateQuery(query)} />
-        <MapContainer markers={this.state.filteredResults}></MapContainer>
+        <ListView  markers={this.state.filteredResults} />
+        <MapContainer markers={this.state.filteredResults} />
       </div>
     );
   }
