@@ -1,0 +1,13 @@
+.ListView {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ListView-item {
+	padding: 1em 1em;
+}
+
+.ListView-item + .ListView-item {
+	border-top: solid 1px rgba(255,255,255, 0.2);
+}

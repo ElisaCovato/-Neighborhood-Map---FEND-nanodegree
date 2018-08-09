@@ -28,11 +28,17 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Neighborhood App</h1>
         </header>
-        <SearchBar 
-          query={this.state.query}
-          updateQuery={query => this.updateQuery(query)} />
-        <ListView  markers={this.state.filteredResults} />
-        <MapContainer markers={this.state.filteredResults} />
+        <main className="App-main">
+          <aside className="App-aside">
+            <SearchBar 
+              query={this.state.query}
+              updateQuery={query => this.updateQuery(query)} />
+            <ListView  markers={this.state.filteredResults} />
+          </aside>
+          <div role="application" className="App-content">
+            <MapContainer markers={this.state.filteredResults} />
+          </div>
+        </main>
       </div>
     );
   }
