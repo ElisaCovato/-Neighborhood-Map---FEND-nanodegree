@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       query: '',
       filteredResults: locations,
+      selectedLocation: undefined
     }
   }
   updateQuery(query) {
@@ -20,6 +21,11 @@ class App extends Component {
       filteredResults: locations.filter(
           location => location.place.toLowerCase().indexOf(query.toLowerCase()) !== -1
         )
+    })
+  }
+  updateSelectedLocation(location) {
+    this.setState({
+      selectedLocation: location
     })
   }
   render() {
@@ -32,11 +38,17 @@ class App extends Component {
           <aside className="App-aside">
             <SearchBar 
               query={this.state.query}
-              updateQuery={query => this.updateQuery(query)} />
-            <ListView  markers={this.state.filteredResults} />
+              updateQuery={query => this.updateQuery(query)}
+               />
+            <ListView  markers={this.state.filteredResults}
+              selectedLocation={this.state.selectedLocation}
+              onLocationClick={location => this.updateSelectedLocation(location)} />
           </aside>
           <div role="application" className="App-content">
-            <MapContainer markers={this.state.filteredResults} />
+            <MapContainer 
+              markers={this.state.filteredResults}
+              selectedLocation={this.state.selectedLocation}
+              onLocationClick={location => this.updateSelectedLocation(location)} />
           </div>
         </main>
       </div>

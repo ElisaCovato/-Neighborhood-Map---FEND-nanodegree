@@ -4,8 +4,20 @@
 	margin: 0;
 }
 
-.ListView-item {
+.ListView-button {
 	padding: 1em 1em;
+	display: block;
+	background-color: transparent;
+	border: 0;
+	color: inherit;
+	font-size: inherit;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+}
+
+.ListView-item-selected {
+	background-color: red;
 }
 
 .ListView-item + .ListView-item {
