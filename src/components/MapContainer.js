@@ -3,12 +3,15 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+const SELECTED_ICON = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
 // This component deals with the Map container and its functionalities
 export class MapContainer extends Component {
 	render() {
+		const {google, markers, selectedLocation, onLocationClick} = this.props;
 		return (
 			<Map 
-				google={this.props.google} 
+				google={google} 
 				zoom={14}
 				initialCenter={{
 					lat: 41.890251,
@@ -16,13 +19,25 @@ export class MapContainer extends Component {
 				}}
 				>
 				
-				{this.props.markers.map( marker => (
-					<Marker 
+				{markers.map( marker => {
+					const icon = (marker !== selectedLocation) ? undefined : {
+						url : SELECTED_ICON,
+						anchor: new window.google.maps.Point(0, 64),
+						scaledSize: new window.google.maps.Size(40,64)
+					};
+					console.log(marker, selectedLocation, marker === selectedLocation)
+					return (
+
+					<Marker
+						key={marker.place}
 						position={marker}
 						name={marker.place}
 						title={marker.place}
+						icon={icon}
+						onClick={() => onLocationClick(marker)}
 					/>
-				))}
+				)}
+					)}
 				
 			</Map>
 		);
