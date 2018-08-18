@@ -20,24 +20,37 @@ export class MapContainer extends Component {
 				>
 				
 				{markers.map( marker => {
-					const icon = (marker !== selectedLocation) ? undefined : {
-						url : SELECTED_ICON,
-						anchor: new window.google.maps.Point(0, 32)
-					};
-					console.log(marker, selectedLocation, marker === selectedLocation)
-					return (
+										
+					return marker === selectedLocation || (
 
 					<Marker
 						key={marker.place}
 						position={marker}
 						name={marker.place}
 						title={marker.place}
-						icon={icon}
 						animation={marker === selectedLocation ? window.google.maps.Animation.BOUNCE : undefined}
 						onClick={() => onLocationClick(marker)}
-					/>
+					>
+					</Marker>
+					);
+					}
+
 				)}
-					)}
+
+				{markers
+					.map(marker => (
+						<InfoWindow
+							key={`${marker.place}-iw`}
+							visible={marker === selectedLocation}
+							onClose={() => onLocationClick()}
+							position={marker}>
+							<div>
+								<h1>Coucou!!!</h1>
+							</div>
+						</InfoWindow>
+
+					)
+				)}
 				
 			</Map>
 		);
