@@ -2,8 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
-const SELECTED_ICON = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+import WikipediaInfo from '../containers/WikipediaInfo';
 
 // This component deals with the Map container and its functionalities
 export class MapContainer extends Component {
@@ -44,9 +43,7 @@ export class MapContainer extends Component {
 							visible={marker === selectedLocation}
 							onClose={() => onLocationClick()}
 							position={marker}>
-							<div>
-								<h1>Coucou!!!</h1>
-							</div>
+							<WikipediaInfo marker={marker} />
 						</InfoWindow>
 
 					)
@@ -58,7 +55,7 @@ export class MapContainer extends Component {
 }
 
 MapContainer.propTypes = {
-	markers: PropTypes.object
+	markers: PropTypes.array
 }
 
 export default GoogleApiWrapper({

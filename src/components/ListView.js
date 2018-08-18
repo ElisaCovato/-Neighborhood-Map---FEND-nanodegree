@@ -11,7 +11,8 @@ export default class ListView extends Component {
 				{markers.map( marker => {
 					const selectedClassName = (marker === selectedLocation) ? ' ListView-item-selected' : ''
 					return (
-						<li className={`ListView-item${selectedClassName}`}>
+						<li key={marker.place}
+							className={`ListView-item${selectedClassName}`}>
 							<button className="ListView-button" type="button" onClick={() => onLocationClick(marker)}>
 								{marker.place}
 							</button>
@@ -24,7 +25,7 @@ export default class ListView extends Component {
 }
 
 ListView.propTypes = {
-	markers: PropTypes.object,
+	markers: PropTypes.array,
 	selectedLocation: PropTypes.object,
 	onLocationClick: PropTypes.func,
 }

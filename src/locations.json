@@ -1,26 +1,31 @@
 [
 	{
 		"place":"Colosseum",
+		"article":"Colosseum",
 		"lat": 41.890338,
 		"lng": 12.492263
 	},	
 	{
 		"place":"Arch of Titus",
+		"article":"Arch of Titus",
 		"lat": 41.890889,
 		"lng": 12.488744
 	},
 	{
 		"place":"Arch of Constantine",
+		"article":"Arch of Constantine",
 		"lat": 41.890003,
 		"lng": 12.490557
 	},
 	{
 		"place":"Domus Aurea",
+		"article":"Domus Aurea",
 		"lat": 41.892862,
 		"lng": 12.493808
 	},
 	{
 		"place":"Domus Tiberiana",
+		"article":"Domus Tiberiana",
 		"lat": 41.890845,
 		"lng": 12.486559
 	}		

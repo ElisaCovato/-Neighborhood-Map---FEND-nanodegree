@@ -7,7 +7,7 @@ export default class SearchBar extends Component {
 	render() {
 		return (
 			<label>
-				<span class="sr-only">Search</span>
+				<span className="sr-only">Search</span>
 			<input type="search" 
 				className="SearchBar"
 				placeholder="eg. Colosseum, Titus,..."
