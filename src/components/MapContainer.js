@@ -12,7 +12,7 @@ export class MapContainer extends Component {
 		return (
 			<Map 
 				google={google} 
-				zoom={14}
+				zoom={15}
 				initialCenter={{
 					lat: 41.890251,
 					lng: 12.492373
@@ -22,8 +22,7 @@ export class MapContainer extends Component {
 				{markers.map( marker => {
 					const icon = (marker !== selectedLocation) ? undefined : {
 						url : SELECTED_ICON,
-						anchor: new window.google.maps.Point(0, 64),
-						scaledSize: new window.google.maps.Size(40,64)
+						anchor: new window.google.maps.Point(0, 32)
 					};
 					console.log(marker, selectedLocation, marker === selectedLocation)
 					return (
@@ -34,6 +33,7 @@ export class MapContainer extends Component {
 						name={marker.place}
 						title={marker.place}
 						icon={icon}
+						animation={marker === selectedLocation ? window.google.maps.Animation.BOUNCE : undefined}
 						onClick={() => onLocationClick(marker)}
 					/>
 				)}
