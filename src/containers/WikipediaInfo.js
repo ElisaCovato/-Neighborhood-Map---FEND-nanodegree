@@ -4,18 +4,38 @@ import PropTypes from 'prop-types';
 import {fetchInfo} from '../api/wikipedia';
 
 export default class WikipediaInfo extends Component {
-
-	componentWillMount() {
-		console.log('Sending request to Wikipedia')
+	state = {
+		info: {},
+		isLoading: true
+	}
+	componentDidUpdate() {
+		console.log('Component dit update!!!')
+	}
+	componentDidMount() {
+		console.log('Component did mount!!!')
 		fetchInfo(this.props.marker.article).then(info => {
-			console.log('Got the response')
 			this.setState({
-				info
+				info,
+				isLoading: false
 			})
 		})
 	}
 	render() {
-		return (<h1>Hey hey!</h1>)
+		if (this.state.isLoading) {
+			return (<p>Loading...</p>)
+		}
+		else {
+			return (<article>
+				<h2>
+					<a href={this.state.info.link}>
+					{this.state.info.title}
+					</a>
+				</h2>
+				<img src={this.state.info.image} alt=""/>
+				<p>{this.state.info.extract}</p>
+				</article>)
+		}
+		
 	}
 }
 
