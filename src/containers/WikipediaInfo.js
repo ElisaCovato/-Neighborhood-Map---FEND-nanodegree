@@ -14,7 +14,7 @@ export default class WikipediaInfo extends Component {
 		this.fetchInfo()
 	}	
 	componentDidUpdate(prevProps) {
-		if (this.props.marker.article != prevProps.marker.article) {
+		if (this.props.marker.article !== prevProps.marker.article) {
 			this.fetchInfo()
 		}
 	}
@@ -62,7 +62,7 @@ export default class WikipediaInfo extends Component {
 
 					<img className="WikipediaInfo-image" 
 						src={this.state.info.image}
-						srcset={this.srcset(this.state.info.image)}
+						srcSet={this.srcset(this.state.info.image)}
 						sizes="(min-width: 862px) calc((100vw - 280px) / 2), (min-width: 730px) calc(100vw - 280px), (min-width: 696px) 50vw, 100vw"
 						alt=""/>
 					}

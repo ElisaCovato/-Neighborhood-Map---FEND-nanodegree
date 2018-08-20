@@ -3,7 +3,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import '../styles/MapContainer.css';
-import WikipediaInfo from '../containers/WikipediaInfo';
 
 // This component deals with the Map container and its functionalities
 export class MapContainer extends Component {

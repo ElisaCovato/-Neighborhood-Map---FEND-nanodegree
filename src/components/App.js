@@ -44,7 +44,7 @@ class App extends Component {
               selectedLocation={this.state.selectedLocation}
               onLocationClick={location => this.updateSelectedLocation(location)} />
           </aside>
-          <div class="App-map">
+          <div className="App-map">
             {this.state.selectedLocation && (
             <aside className="App-info">
               <WikipediaInfo marker={this.state.selectedLocation} />
