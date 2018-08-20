@@ -38,5 +38,15 @@ color: white;
   font-size: 1.5em;
 }
 
+.App-map {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.App-info {
+  padding: 1em;
+}
+
 
 

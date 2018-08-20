@@ -4,6 +4,7 @@ import MapContainer from './MapContainer'
 import SearchBar from './SearchBar'
 import ListView from './ListView'
 import locations from '../locations.json'
+import WikipediaInfo from '../containers/WikipediaInfo'
 
 class App extends Component {
   constructor(props) {
@@ -43,11 +44,18 @@ class App extends Component {
               selectedLocation={this.state.selectedLocation}
               onLocationClick={location => this.updateSelectedLocation(location)} />
           </aside>
-          <div role="application" className="App-content">
-            <MapContainer 
-              markers={this.state.filteredResults}
-              selectedLocation={this.state.selectedLocation}
-              onLocationClick={location => this.updateSelectedLocation(location)} />
+          <div class="App-map">
+            {this.state.selectedLocation && (
+            <aside className="App-info">
+              <WikipediaInfo marker={this.state.selectedLocation} />
+            </aside>
+            )}
+             <div role="application" className="App-content">
+                <MapContainer 
+                  markers={this.state.filteredResults}
+                  selectedLocation={this.state.selectedLocation}
+                  onLocationClick={location => this.updateSelectedLocation(location)} />
+              </div>
           </div>
         </main>
       </div>

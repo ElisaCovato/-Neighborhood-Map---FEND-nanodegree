@@ -8,11 +8,15 @@ export default class WikipediaInfo extends Component {
 		info: {},
 		isLoading: true
 	}
-	componentDidUpdate() {
-		console.log('Component dit update!!!')
-	}
 	componentDidMount() {
-		console.log('Component did mount!!!')
+		this.fetchInfo()
+	}	
+	componentDidUpdate(prevProps) {
+		if (this.props.marker.article != prevProps.marker.article) {
+			this.fetchInfo()
+		}
+	}
+	fetchInfo() {
 		fetchInfo(this.props.marker.article).then(info => {
 			this.setState({
 				info,
