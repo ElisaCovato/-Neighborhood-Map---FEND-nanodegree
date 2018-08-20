@@ -46,6 +46,13 @@ color: white;
 
 .App-info {
   padding: 1em;
+  position: relative;
+}
+
+.App-closeInfo {
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }
 
 

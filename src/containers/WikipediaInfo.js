@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {fetchInfo} from '../api/wikipedia';
+import '../styles/WikipediaInfo.css'
 
 export default class WikipediaInfo extends Component {
 	state = {
@@ -29,14 +30,16 @@ export default class WikipediaInfo extends Component {
 			return (<p>Loading...</p>)
 		}
 		else {
-			return (<article>
-				<h2>
-					<a href={this.state.info.link}>
+			return (<article className="WikipediaInfo">
+				<h2 className="WikipediaInfo-title">
+					<a className="WikipediaInfo-link" href={this.state.info.link}>
 					{this.state.info.title}
 					</a>
 				</h2>
-				<img src={this.state.info.image} alt=""/>
-				<p>{this.state.info.extract}</p>
+				<div className="WikipediaInfo-imageWrapper">
+					<img className="WikipediaInfo-image" src={this.state.info.image} alt=""/>
+				</div>
+				<p className="WikipediaInfo-content">{this.state.info.extract}</p>
 				</article>)
 		}
 		

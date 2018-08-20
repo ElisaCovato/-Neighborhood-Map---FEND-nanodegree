@@ -1,0 +1,51 @@
+.WikipediaInfo {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.WikipediaInfo-title {
+	margin-top: 0;
+	width: 100%;
+	flex: none;
+}
+
+.WikipediaInfo-link {
+	color: white;
+}
+
+.WikipediaInfo-link:hover {
+	text-decoration: none;
+}
+
+.WikipediaInfo-imageWrapper {
+	position: relative;
+	/*https://medium.freecodecamp.org/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848*/
+	min-width: 50%;
+	width: calc((550px - 100%) * 550);
+	max-width: 100%;
+}
+
+.WikipediaInfo-imageWrapper::before {
+	content: '';
+	display: block;
+	padding-top: calc(100% * 3 / 4);
+}
+
+.WikipediaInfo-image {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.WikipediaInfo-content {
+	flex: auto;
+	width: min-content;
+	padding: 1em;
+	margin: 0;
+	background: hsla(0, 0%, 100%, 0.2);
+}

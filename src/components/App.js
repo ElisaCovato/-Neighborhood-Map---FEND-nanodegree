@@ -48,6 +48,10 @@ class App extends Component {
             {this.state.selectedLocation && (
             <aside className="App-info">
               <WikipediaInfo marker={this.state.selectedLocation} />
+              <button className="App-closeInfo" onClick={() => this.updateSelectedLocation()}>
+                <span className="sr-only">Close</span>
+                <i aria-hidden="true">&times;</i>
+              </button>
             </aside>
             )}
              <div role="application" className="App-content">
