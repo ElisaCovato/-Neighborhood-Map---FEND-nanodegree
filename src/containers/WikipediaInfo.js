@@ -7,7 +7,8 @@ import '../styles/WikipediaInfo.css'
 export default class WikipediaInfo extends Component {
 	state = {
 		info: {},
-		isLoading: true
+		isLoading: true,
+		hasError: false
 	}
 	componentDidMount() {
 		this.fetchInfo()
@@ -18,10 +19,19 @@ export default class WikipediaInfo extends Component {
 		}
 	}
 	fetchInfo() {
+		this.setState({
+			isLoading: true,
+			hasError: false
+		})
 		fetchInfo(this.props.marker.article).then(info => {
 			this.setState({
 				info,
 				isLoading: false
+			})
+		}).catch(error => {
+			this.setState({
+				isLoading: false,
+				hasError: true
 			})
 		})
 	}
@@ -34,6 +44,8 @@ export default class WikipediaInfo extends Component {
 	render() {
 		if (this.state.isLoading) {
 			return (<p>Loading...</p>)
+		} else if (this.state.hasError) {
+			return (<p>Sorry, we couldn't load more information :'(</p>)
 		}
 		else {
 			return (<article className="WikipediaInfo">
