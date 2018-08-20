@@ -40,9 +40,14 @@ class App extends Component {
               query={this.state.query}
               updateQuery={query => this.updateQuery(query)}
                />
-            <ListView  markers={this.state.filteredResults}
-              selectedLocation={this.state.selectedLocation}
-              onLocationClick={location => this.updateSelectedLocation(location)} />
+            <div aria-live="polite" aria-atomic="true">
+              {this.state.query && (
+                <p className="sr-only">Locations matching {this.state.query}</p>
+                )}
+              <ListView  markers={this.state.filteredResults}
+                selectedLocation={this.state.selectedLocation}
+                onLocationClick={location => this.updateSelectedLocation(location)} />
+            </div>
           </aside>
           <div className="App-map">
             {this.state.selectedLocation && (
