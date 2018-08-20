@@ -49,3 +49,8 @@
 	margin: 0;
 	background: hsla(0, 0%, 100%, 0.2);
 }
+
+.WikipediaInfo-attribution {
+	width: 100%;
+	margin-top: 0.5em;
+}

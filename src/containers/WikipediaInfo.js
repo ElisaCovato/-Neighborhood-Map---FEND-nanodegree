@@ -25,6 +25,12 @@ export default class WikipediaInfo extends Component {
 			})
 		})
 	}
+	srcset(image) {
+		return [320,640, 1280].map(size => {
+			const url = image.replace(/[0-9]*px/, `${size}px`)
+			return `${url} ${size}w`
+		}).join(',');
+	}
 	render() {
 		if (this.state.isLoading) {
 			return (<p>Loading...</p>)
@@ -37,9 +43,20 @@ export default class WikipediaInfo extends Component {
 					</a>
 				</h2>
 				<div className="WikipediaInfo-imageWrapper">
-					<img className="WikipediaInfo-image" src={this.state.info.image} alt=""/>
+					{/* 
+						Empty alt attribute as the only info we have would be "Picture of <name of the location>"
+						which doesn't bring add any information to the surrounding text to the user
+					*/}
+
+					<img className="WikipediaInfo-image" 
+						src={this.state.info.image}
+						srcset={this.srcset(this.state.info.image)}
+						sizes="(min-width: 862px) calc((100vw - 280px) / 2), (min-width: 730px) calc(100vw - 280px), (min-width: 696px) 50vw, 100vw"
+						alt=""/>
+					}
 				</div>
 				<p className="WikipediaInfo-content">{this.state.info.extract}</p>
+				<small className="WikipediaInfo-attribution">Source: <a href="https://it.wikipedia.org">Wikipedia</a></small>
 				</article>)
 		}
 		
