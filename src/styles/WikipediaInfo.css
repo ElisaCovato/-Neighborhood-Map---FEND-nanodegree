@@ -10,7 +10,7 @@
 }
 
 .WikipediaInfo-link {
-	color: white;
+	color: inherit;
 }
 
 .WikipediaInfo-link:hover {

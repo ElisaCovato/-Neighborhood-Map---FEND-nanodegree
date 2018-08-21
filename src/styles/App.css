@@ -1,10 +1,18 @@
+@font-face{
+  font-family: "RomanFont";
+  src: url("./font/BASILEUS.TTF") format('truetype');
+}
+
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-background-color: #222;
-color: white;
+color: #634739;
+
+
+  background-color: #e9dac3 ;
+background-image: url("./texture/white-wall.png");
 }
 
 .App-main {
@@ -24,18 +32,20 @@ color: white;
   .App-content {
     position: relative;
     flex: auto;
+    min-height: 50vh;
   }
 }
 
 .App-header {
-  
-  padding: 20px;
-  
+  padding: 10px;
   text-align: center;
 }
 
 .App-title {
-  font-size: 1.5em;
+
+  margin:10px;
+  font-size: 50pt;
+  font-family: 'RomanFont', Times, serif;
 }
 
 .App-map {
@@ -53,6 +63,19 @@ color: white;
   position: absolute;
   top: 1em;
   right: 1em;
+  background: #e9dac3;
+  border:solid 2px #634739;
+  border-radius: 999px;
+  width: 1.5em;
+  height: 1.5em;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.App-closeInfo:hover {
+  background-color: #634739;
+  color:#e9dac3;
 }
 
 

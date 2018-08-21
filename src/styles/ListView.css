@@ -17,7 +17,8 @@
 }
 
 .ListView-item-selected {
-	background-color: red;
+	background-color: #634739;
+	color:#e9dac3;
 }
 
 .ListView-item + .ListView-item {
