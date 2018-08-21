@@ -15,6 +15,7 @@ class App extends Component {
       selectedLocation: undefined
     }
   }
+  //updateQuery updates the query for searching results
   updateQuery(query) {
     this.setState({
       query,
@@ -23,6 +24,7 @@ class App extends Component {
         )
     })
   }
+  //this function updates the list view
   updateSelectedLocation(location) {
     this.setState({
       selectedLocation: location
@@ -36,7 +38,8 @@ class App extends Component {
         </header>
         <main className="App-main">
           <aside className="App-aside">
-            <SearchBar 
+        {/* when searching for a word the list updates accordingly*/}
+            <SearchBar  
               query={this.state.query}
               updateQuery={query => this.updateQuery(query)}
                />
@@ -47,9 +50,10 @@ class App extends Component {
               <ListView  markers={this.state.filteredResults}
                 selectedLocation={this.state.selectedLocation}
                 onLocationClick={location => this.updateSelectedLocation(location)} />
-            </div>
+            </div> 
           </aside>
           <div className="App-map">
+            {/* the aside shows to the user extra info on the selected location */}
             {this.state.selectedLocation && (
             <aside className="App-info">
               <WikipediaInfo marker={this.state.selectedLocation} />

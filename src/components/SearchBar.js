@@ -8,11 +8,11 @@ export default class SearchBar extends Component {
 		return (
 			<label>
 				<span className="sr-only">Search</span>
-			<input type="search" 
-				className="SearchBar"
-				placeholder="eg. Colosseum, Titus,..."
-			   value={this.props.query} 
-			   onInput={e => this.props.updateQuery(e.target.value)} />
+				<input type="search" 
+					className="SearchBar"
+					placeholder="eg. Colosseum, Titus,..."
+				    value={this.props.query} 
+			    	onInput={e => this.props.updateQuery(e.target.value)} />
 			</label>
 		);
 	}

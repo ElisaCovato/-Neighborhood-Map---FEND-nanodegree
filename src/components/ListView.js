@@ -3,6 +3,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/ListView.css';
 
+// This component deals with the list of locations that appears uder the search bar 
 export default class ListView extends Component {
 	render() {
 		const {markers, selectedLocation, onLocationClick} = this.props
